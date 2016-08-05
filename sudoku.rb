@@ -38,7 +38,6 @@ def find_zero(board)
   end
 end
 
-
 def data_to_int(mixed_string)
 	mixed_string.chars.map!{ |item| item.to_i }
 end
@@ -54,3 +53,36 @@ def create_board(array)
 	end
 	board_array
 end
+
+def check_row(board, row_idx, num_search)
+  board[row_idx].include?(num_search)
+
+end
+
+def check_column(board, column_idx, num_search)
+ check_row(board.transpose, column_idx, num_search)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
