@@ -40,6 +40,33 @@ describe "Sudoku" do
 				expect(find_zero(board_no_zero_in0)).to eq [1, 2]
 			end
 	end
+	context 'Checks board for specific number' do
+	let(:board) {  [[1, 0, 5, 8, 0, 2, 0, 0, 0],
+									[0, 9, 0, 0, 7, 6, 4, 0, 5],
+									[2, 0, 0, 4, 0, 0, 8, 1, 9],
+									[0, 1, 9, 0, 0, 7, 3, 0, 6],
+									[7, 6, 2, 0, 8, 3, 0, 9, 0],
+									[0, 0, 0, 0, 6, 1, 0, 5, 0],
+									[0, 0, 7, 6, 0, 0, 0, 3, 0],
+									[4, 3, 0, 0, 2, 0, 5, 0, 1],
+									[6, 0, 0, 3, 0, 8, 9, 0, 0]] }
+
+		it 'returns true if row contains number' do
+			expect(check_row(board, 0, 5)).to eq true
+		end
+
+		it 'returns false if row does not contain number' do
+			expect(check_row(board, 3, 8)).to eq false
+		end
+
+		it 'returns true if column contains number' do
+			expect(check_column(board, 0, 7)).to eq true
+		end
+
+		it 'returns false if coliumn does not contains number' do
+			expect(check_column(board, 3, 1)).to eq false
+		end
+	end
 
 end
 
