@@ -30,9 +30,14 @@ describe "Sudoku" do
 
 	context "check board for zero return location" do
 		let(:board) { [[1, 0, 5, 8, 0, 2, 0, 0, 0], [0, 9, 0, 0, 7, 6, 4, 0, 5], [2, 0, 0, 4, 0, 0, 8, 1, 9], [0, 1, 9, 0, 0, 7, 3, 0, 6], [7, 6, 2, 0, 8, 3, 0, 9, 0], [0, 0, 0, 0, 6, 1, 0, 5, 0], [0, 0, 7, 6, 0, 0, 0, 3, 0], [4, 3, 0, 0, 2, 0, 5, 0, 1], [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
+		let(:board_no_zero_in0) { [[1, 4, 5, 8, 9, 2, 3, 6, 7], [3, 9, 0, 0, 7, 6, 4, 0, 5], [2, 0, 0, 4, 0, 0, 8, 1, 9], [0, 1, 9, 0, 0, 7, 3, 0, 6], [7, 6, 2, 0, 8, 3, 0, 9, 0], [0, 0, 0, 0, 6, 1, 0, 5, 0], [0, 0, 7, 6, 0, 0, 0, 3, 0], [4, 3, 0, 0, 2, 0, 5, 0, 1], [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
 
 			it 'Checks for zero location and returns location' do
 				expect(find_zero(board)).to eq [0, 1]
+			end
+
+			it 'Checks for zero location and returns location' do
+				expect(find_zero(board_no_zero_in0)).to eq [1, 2]
 			end
 	end
 

@@ -24,16 +24,17 @@ end
 def find_zero(board)
   row = 0
   column = 0
-  until row == 9 && column == 9
+  until row == 8 && column == 8
     if board[row][column] == 0
       return [row, column]
     end
 
-    if column == 9
-     column = -1
+    if column == 8
+     column = 0
      row += 1
+    else
+      column += 1
     end
-    column += 1
   end
 end
 
