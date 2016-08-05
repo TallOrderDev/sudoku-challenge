@@ -21,22 +21,35 @@ end
 def pretty_board(board)
 end
 
+def find_zero(board)
+  row = 0
+  column = 0
+  until row == 9 && column == 9
+    if board[row][column] == 0
+      return [row, column]
+    end
 
-def data_to_int(mixed_string)
-	mixed_string.to_i
+    if column == 9
+     column = -1
+     row += 1
+    end
+    column += 1
+  end
 end
 
-def create_rows(string)
+
+def data_to_int(mixed_string)
+	mixed_string.chars.map!{ |item| item.to_i }
+end
+
+def create_board(array)
 	begin_idx = 0
 	end_idx = 8
 	board_array = []
 	until end_idx > 80
-	board_array << string[begin_idx..end_idx]
+	board_array << array[begin_idx..end_idx]
 	begin_idx += 9
 	end_idx += 9
 	end
 	board_array
-end
-
-def string_to_array_rows(array)
 end
