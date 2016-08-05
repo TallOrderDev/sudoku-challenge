@@ -20,3 +20,23 @@ end
 # form `solve` returns.
 def pretty_board(board)
 end
+
+
+def data_to_int(mixed_string)
+	mixed_string.to_i
+end
+
+def create_rows(string)
+	begin_idx = 0
+	end_idx = 8
+	board_array = []
+	until end_idx > 80
+	board_array << string[begin_idx..end_idx]
+	begin_idx += 9
+	end_idx += 9
+	end
+	board_array
+end
+
+def string_to_array_rows(array)
+end
