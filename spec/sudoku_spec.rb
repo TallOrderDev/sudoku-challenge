@@ -5,7 +5,15 @@ describe "Sudoku" do
 
 	let(:test_string) { "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--" }
 	let(:int_array) { [1, 0, 5, 8, 0, 2, 0, 0, 0, 0, 9, 0, 0, 7, 6, 4, 0, 5, 2, 0, 0, 4, 0, 0, 8, 1, 9, 0, 1, 9, 0, 0, 7, 3, 0, 6, 7, 6, 2, 0, 8, 3, 0, 9, 0, 0, 0, 0, 0, 6, 1, 0, 5, 0, 0, 0, 7, 6, 0, 0, 0, 3, 0, 4, 3, 0, 0, 2, 0, 5, 0, 1, 6, 0, 0, 3, 0, 8, 9, 0, 0] }
-	let(:board) { [[1, 0, 5, 8, 0, 2, 0, 0, 0], [0, 9, 0, 0, 7, 6, 4, 0, 5], [2, 0, 0, 4, 0, 0, 8, 1, 9], [0, 1, 9, 0, 0, 7, 3, 0, 6], [7, 6, 2, 0, 8, 3, 0, 9, 0], [0, 0, 0, 0, 6, 1, 0, 5, 0], [0, 0, 7, 6, 0, 0, 0, 3, 0], [4, 3, 0, 0, 2, 0, 5, 0, 1], [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
+	let(:board) { [[1, 0, 5, 8, 0, 2, 0, 0, 0],
+								 [0, 9, 0, 0, 7, 6, 4, 0, 5],
+								 [2, 0, 0, 4, 0, 0, 8, 1, 9],
+								 [0, 1, 9, 0, 0, 7, 3, 0, 6],
+								 [7, 6, 2, 0, 8, 3, 0, 9, 0],
+								 [0, 0, 0, 0, 6, 1, 0, 5, 0],
+								 [0, 0, 7, 6, 0, 0, 0, 3, 0],
+								 [4, 3, 0, 0, 2, 0, 5, 0, 1],
+								 [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
 
 	it 'is an array of integers' do
 		expect(data_to_int(test_string)).to eq int_array
@@ -29,8 +37,24 @@ describe "Sudoku" do
 	end
 
 	context "check board for zero return location" do
-		let(:board) { [[1, 0, 5, 8, 0, 2, 0, 0, 0], [0, 9, 0, 0, 7, 6, 4, 0, 5], [2, 0, 0, 4, 0, 0, 8, 1, 9], [0, 1, 9, 0, 0, 7, 3, 0, 6], [7, 6, 2, 0, 8, 3, 0, 9, 0], [0, 0, 0, 0, 6, 1, 0, 5, 0], [0, 0, 7, 6, 0, 0, 0, 3, 0], [4, 3, 0, 0, 2, 0, 5, 0, 1], [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
-		let(:board_no_zero_in0) { [[1, 4, 5, 8, 9, 2, 3, 6, 7], [3, 9, 0, 0, 7, 6, 4, 0, 5], [2, 0, 0, 4, 0, 0, 8, 1, 9], [0, 1, 9, 0, 0, 7, 3, 0, 6], [7, 6, 2, 0, 8, 3, 0, 9, 0], [0, 0, 0, 0, 6, 1, 0, 5, 0], [0, 0, 7, 6, 0, 0, 0, 3, 0], [4, 3, 0, 0, 2, 0, 5, 0, 1], [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
+		let(:board) { [[1, 0, 5, 8, 0, 2, 0, 0, 0],
+									 [0, 9, 0, 0, 7, 6, 4, 0, 5],
+									 [2, 0, 0, 4, 0, 0, 8, 1, 9],
+									 [0, 1, 9, 0, 0, 7, 3, 0, 6],
+									 [7, 6, 2, 0, 8, 3, 0, 9, 0],
+									 [0, 0, 0, 0, 6, 1, 0, 5, 0],
+									 [0, 0, 7, 6, 0, 0, 0, 3, 0],
+									 [4, 3, 0, 0, 2, 0, 5, 0, 1],
+									 [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
+		let(:board_no_zero_in0) { [[1, 4, 5, 8, 9, 2, 3, 6, 7],
+															 [3, 9, 0, 0, 7, 6, 4, 0, 5],
+															 [2, 0, 0, 4, 0, 0, 8, 1, 9],
+															 [0, 1, 9, 0, 0, 7, 3, 0, 6],
+															 [7, 6, 2, 0, 8, 3, 0, 9, 0],
+															 [0, 0, 0, 0, 6, 1, 0, 5, 0],
+															 [0, 0, 7, 6, 0, 0, 0, 3, 0],
+															 [4, 3, 0, 0, 2, 0, 5, 0, 1],
+															 [6, 0, 0, 3, 0, 8, 9, 0, 0]] }
 
 			it 'Checks for zero location and returns location' do
 				expect(find_zero(board)).to eq [0, 1]
@@ -63,8 +87,41 @@ describe "Sudoku" do
 			expect(check_column(board, 0, 7)).to eq true
 		end
 
-		it 'returns false if coliumn does not contains number' do
+		it 'returns false if column does not contains number' do
 			expect(check_column(board, 3, 1)).to eq false
+		end
+
+		it 'returns box number for cell coordinates' do
+			expect(box_identifier([0,0])).to eq 1
+		end
+
+		it 'returns box number for cell coordinates' do
+			expect(box_identifier([4,7])).to eq 6
+		end
+
+		it 'returns box start cords for box num' do
+			expect(box_start_location(5)).to eq [3, 3]
+		end
+
+		it 'returns box start cords for cell location' do
+			expect(box_start_location(box_identifier([4,7]))).to eq [3, 6]
+		end
+
+
+		it 'returns true if box contains number' do
+			expect(check_box(board, [0,1], 1)).to eq true
+		end
+
+		it 'returns true if box contains number' do
+			expect(check_box(board, [0,4], 6)).to eq true
+		end
+
+		it 'returns false if box contains number' do
+			expect(check_box(board, [0,4], 1)).to eq false
+		end
+
+		it 'returns true if row/column/box contains number' do
+			expect(cell_check(board, [0,0], 7	)).to eq true
 		end
 	end
 
