@@ -120,11 +120,37 @@ describe "Sudoku" do
 			expect(check_box(board, [0,4], 1)).to eq false
 		end
 
-		it 'returns true if row/column/box contains number' do
-			expect(cell_check(board, [0,0], 7	)).to eq true
-		end
-	end
+		context 'Testing row/column/number for conflic true/false' do
+			it 'returns true if row/column/box contains number' do
+				expect(cell_check(board, [0,1], 9	)).to eq true
+			end
 
+			it 'returns false if row/column/box n/contains number' do
+				expect(cell_check(board, [0,1], 7	)).to eq false
+			end
+		end
+
+		context 'building hash T/F for conflict of each #' do
+			let(:hash_more1) { {1=>true, 2=>true, 3=>true, 4=>false, 5=>true, 6=>true, 7=>false, 8=>true, 9=>true} }
+			let(:hash1) { {1=>false, 2=>true, 3=>true, 4=>true, 5=>true, 6=>true, 7=>true, 8=>true, 9=>true} }
+			let(:hash30) { {1=>true, 2=>true, 3=>true, 4=>true, 5=>false, 6=>true, 7=>true, 8=>false, 9=>true} }
+			it 'hash for cell with t/f for all nums' do
+				expect(cell_conflicts(board, [0,1])).to eq hash_more1
+			end
+
+			it 'hash for cell (1,3) with t/f for all nums FOR SURE FALSE ON 1' do
+				expect(cell_conflicts(board, [1,3])).to eq hash1
+			end
+
+			it 'hash for cell(3,0) with t/f for all nums  FOR SURE FALSE ON 5, 8' do
+				expect(cell_conflicts(board, [3,0])).to eq hash30
+			end
+
+		end
+
+
+
+	end
 end
 
 

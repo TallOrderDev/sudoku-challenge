@@ -24,7 +24,7 @@ end
 def find_zero(board)
   row = 0
   column = 0
-  until row == 8 && column == 8
+  until row == 9 && column == 0
     if board[row][column] == 0
       return [row, column]
     end
@@ -124,7 +124,7 @@ def check_box(board, cell_coordinates, num_search)
   row, column = box_start_location(box_identifier(cell_coordinates))
   stop_row = row + 2
   stop_column = column + 2
-  until row == stop_row && column == stop_column
+  until  ow == stop_row && column == stop_column
     if num_search == board[row][column]
       return true
     end
@@ -151,7 +151,49 @@ def cell_check(board, start_array, num_search)
   end
 end
 
+def cell_conflicts(board, start_location)
+  z = 1
+  cell = {}
+  until z == 10
+    conflict = cell_check(board, start_location, z)
+    cell[z] = conflict
+    z += 1
+  end
+cell
+end
 
+
+def false_count(hash)
+  conflict_collection = []
+  hash.each_pair {|num, conflict| conflict_collection << conflict }
+  conflict_collection.count(false)
+end
+
+def loop_through_zeros(board)
+  cell_location = find_zero(board)
+  row, column = cell_location
+  until row == false
+   # p cell_location
+    hash = cell_conflicts(board, cell_location)
+    if false_count(hash) <= 1
+      num = hash.key(false)
+      board[row][column] = num
+    else
+      board[row][column] = ''
+    end
+    cell_location = find_zero(board)
+    row, column = cell_location
+  end
+  board
+end
+
+# def loop(board)
+#   new_board = []
+#   4.times do |board|
+#     result = loop_through_zeros(board)
+#   end
+#   p result
+# end
 
 
 
